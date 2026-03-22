@@ -5,7 +5,7 @@ import { Mail, Facebook, Phone, MapPin, Hash } from "lucide-react";
 const navLinks = [
   { label: "Trang Chủ", href: "/" },
   { label: "Giới Thiệu", href: "/about-us" },
-  { label: "Dự Án", href: "/du-an" },
+  { label: "Dự Án", href: "/social-house/projects" },
   { label: "Nhà Ở Xã Hội", href: "/nha-o-xa-hoi" },
   { label: "Chuyển Nhượng", href: "/chuyen-nhuong" },
   { label: "Tin Tức", href: "/tin-tuc" },

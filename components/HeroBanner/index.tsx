@@ -31,7 +31,7 @@ const slides = [
     title: "DỰ ÁN NHÀ Ở XÃ HỘI",
     subtitle:
       "Giải pháp nhà ở bền vững, đáp ứng đầy đủ nhu cầu sinh sống và đầu tư lâu dài",
-    buttonText: "CHI TIẾT",
+    buttonText: "KHÁM PHÁ",
     href: "/du-an/sun-valley-2",
   },
 ];
@@ -63,8 +63,8 @@ export default function HeroBanner() {
               <div className="absolute inset-0 bg-black/40" />
               <div className="absolute inset-0 flex items-end pb-24">
                 <div className="w-full bg-black/5 backdrop-blur-xs px-8 py-10 shadow-2xl flex justify-center animate-fadeInUp">
-                  <div className="max-w-6xl">
-                    <h1 className="text-2xl sm:text-3xl lg:text-6xl text-white mb-4 leading-snug">
+                  <div className="md:max-w-[70%]">
+                    <h1 className="text-2xl sm:text-3xl lg:text-6xl tracking-[0.15em] font-medium text-white mb-4 leading-snug">
                       {slide.title}
                     </h1>
 
@@ -75,7 +75,7 @@ export default function HeroBanner() {
 
                       <Link
                         href={slide.href}
-                        className="group relative inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold tracking-wide text-white border border-cyan-400 rounded-md overflow-hidden transition-all duration-300"
+                        className="group relative inline-flex items-center gap-2 px-12 py-3 text-sm font-semibold tracking-wide text-white border border-cyan-400 overflow-hidden transition-all duration-300"
                       >
                         <span className="absolute inset-0 bg-black/90 opacity-80 group-hover:opacity-100 transition" />
                         <span className="absolute inset-0 rounded-md border border-cyan-400 blur-sm opacity-70 group-hover:opacity-100 group-hover:blur-md transition-all duration-300" />

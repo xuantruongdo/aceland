@@ -6,7 +6,7 @@ import VisionMission from "@/components/VisionMission";
 export default function About() {
   return (
     <>
-      <Banner />
+      <Banner image="/images/banner-2.jpg" title="GIỚI THIỆU CÔNG TY" />
       <AboutUs />
       <VisionMission
         title="Tầm Nhìn"

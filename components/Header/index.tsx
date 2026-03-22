@@ -11,11 +11,11 @@ const navItems = [
   { label: "GIỚI THIỆU", href: "/about-us" },
   {
     label: "NHÀ Ở XÃ HỘI",
-    href: "/nha-o-xa-hoi",
+    href: "#",
     dropdown: [
-      { label: "Dự án", href: "/nha-o-xa-hoi/du-an" },
-      { label: "Đối tượng", href: "/nha-o-xa-hoi/doi-tuong" },
-      { label: "Tư vấn hồ sơ", href: "/nha-o-xa-hoi/tu-van" },
+      { label: "Dự án", href: "/social-house/projects" },
+      { label: "Đối tượng", href: "/social-house/audience" },
+      { label: "Tư vấn hồ sơ", href: "/social-house/consultancy" },
     ],
   },
   { label: "DỰ ÁN", href: "/du-an" },
@@ -68,19 +68,17 @@ export default function Header() {
     <>
       <header className="absolute top-0 left-0 right-0 z-50 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-center h-16">
+          <div className="flex items-center justify-between h-16">
+            <Link href={"/"} className="flex items-center gap-2 z-[60]">
+              <Image
+                src="/images/logo.png"
+                alt="Logo"
+                width={40}
+                height={40}
+                className="object-cover w-auto h-auto"
+              />
+            </Link>
             <nav className="hidden md:flex items-center gap-8">
-              <div className="flex items-center gap-2">
-                <Link href={"/"}>
-                  <Image
-                    src="/images/logo.png"
-                    alt="Logo"
-                    width={40}
-                    height={40}
-                    className="object-cover w-auto h-auto"
-                  />
-                </Link>
-              </div>
               {navItems.map((item) => (
                 <div key={item.label} className="relative group">
                   {item.dropdown ? (
