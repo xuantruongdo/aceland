@@ -10,8 +10,7 @@ export default function Partners() {
     <div className="w-full bg-white pt-12">
       <div className="flex flex-col items-center mb-10">
         <h2
-          className="text-xl md:text-2xl font-light tracking-[0.35em] text-gray-800 uppercase pb-1"
-          style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+          className="text-xl md:text-[30px] font-light font-crimson text-gray-800 uppercase pb-1"
         >
           Đối Tác
         </h2>

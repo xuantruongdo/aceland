@@ -60,14 +60,15 @@ export default function HeroBanner() {
                 className="object-cover"
                 priority={index === 0}
               />
+              <div className="absolute inset-0 bg-black/40" />
               <div className="absolute inset-0 flex items-end pb-24">
                 <div className="w-full bg-black/5 backdrop-blur-xs px-8 py-10 shadow-2xl flex justify-center animate-fadeInUp">
-                  <div className="max-w-4xl">
-                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white mb-4 leading-snug">
+                  <div className="max-w-6xl">
+                    <h1 className="text-2xl sm:text-3xl lg:text-6xl text-white mb-4 leading-snug">
                       {slide.title}
                     </h1>
 
-                    <div className="flex items-center gap-4 md:gap-20">
+                    <div className="md:flex items-center gap-4 md:gap-20">
                       <p className="text-sm sm:text-base text-gray-200 mb-6">
                         {slide.subtitle}
                       </p>

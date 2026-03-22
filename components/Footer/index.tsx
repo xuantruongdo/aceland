@@ -4,7 +4,7 @@ import { Mail, Facebook, Phone, MapPin, Hash } from "lucide-react";
 
 const navLinks = [
   { label: "Trang Chủ", href: "/" },
-  { label: "Giới Thiệu", href: "/gioi-thieu" },
+  { label: "Giới Thiệu", href: "/about-us" },
   { label: "Dự Án", href: "/du-an" },
   { label: "Nhà Ở Xã Hội", href: "/nha-o-xa-hoi" },
   { label: "Chuyển Nhượng", href: "/chuyen-nhuong" },
@@ -17,16 +17,17 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#1a1a1a] text-white px-8 md:px-16 lg:px-24 py-12">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
-        {/* Col 1 — Brand */}
         <div className="space-y-5">
-          <Image
-            src="/images/logo.png"
-            alt="Logo"
-            width={80}
-            height={80}
-            className="object-contain w-auto h-auto"
-          />
-          <p className="text-sm font-semibold text-white leading-snug">
+          <Link href={"/"}>
+            <Image
+              src="/images/logo.png"
+              alt="Logo"
+              width={80}
+              height={80}
+              className="object-contain w-auto h-auto"
+            />
+          </Link>
+          <p className="text-sm font-semibold text-white leading-snug mt-4">
             Công ty CP Dịch vụ và Đầu tư Ace Land
           </p>
           <ul className="space-y-3">
@@ -57,7 +58,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Col 2 — Navigation */}
         <div className="flex flex-col justify-start pt-1">
           <ul className="space-y-4">
             {navLinks.map((link) => (

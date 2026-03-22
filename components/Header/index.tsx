@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { label: "TRANG CHỦ", href: "/", active: true },
-  { label: "GIỚI THIỆU", href: "/gioi-thieu" },
+  { label: "GIỚI THIỆU", href: "/about-us" },
   {
     label: "NHÀ Ở XÃ HỘI",
     href: "/nha-o-xa-hoi",
@@ -34,28 +35,52 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openSub, setOpenSub] = useState<string | null>(null);
   const [openDesktopSub, setOpenDesktopSub] = useState<string | null>(null);
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
 
   const toggleSub = (label: string) => {
     setOpenSub((prev) => (prev === label ? null : label));
   };
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+    } else {
+      document.body.style.overflow = "auto";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    };
+  }, [mobileOpen]);
+
   return (
     <>
       <header className="absolute top-0 left-0 right-0 z-50 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-2">
-              <Image
-                src="/images/logo.png"
-                alt="Logo"
-                width={100}
-                height={100}
-                className="object-cover w-auto h-auto"
-              />
-            </div>
-
-            {/* Desktop Navigation */}
+          <div className="flex items-center justify-center h-16">
             <nav className="hidden md:flex items-center gap-8">
+              <div className="flex items-center gap-2">
+                <Link href={"/"}>
+                  <Image
+                    src="/images/logo.png"
+                    alt="Logo"
+                    width={40}
+                    height={40}
+                    className="object-cover w-auto h-auto"
+                  />
+                </Link>
+              </div>
               {navItems.map((item) => (
                 <div key={item.label} className="relative group">
                   {item.dropdown ? (
@@ -63,7 +88,7 @@ export default function Header() {
                       onMouseEnter={() => setOpenDesktopSub(item.label)}
                       onMouseLeave={() => setOpenDesktopSub(null)}
                       className={`flex items-center gap-1.5 transition text-sm font-medium ${
-                        item.active
+                        isActive(item.href)
                           ? "text-amber-400"
                           : "text-white hover:text-amber-400"
                       }`}
@@ -80,7 +105,7 @@ export default function Header() {
                     <Link
                       href={item.href}
                       className={`transition text-sm font-medium ${
-                        item.active
+                        isActive(item.href)
                           ? "text-amber-400"
                           : "text-white hover:text-amber-400"
                       }`}
@@ -145,16 +170,6 @@ export default function Header() {
           background: "linear-gradient(180deg, #0d1b3e 0%, #091229 100%)",
         }}
       >
-        <div className="flex items-center justify-between px-6 py-6 border-b border-white/10">
-          <Image
-            src="/images/logo.png"
-            alt="Logo"
-            width={80}
-            height={80}
-            className="object-cover w-auto h-auto"
-          />
-        </div>
-
         <nav className="flex-1 flex flex-col justify-center px-10 gap-1 overflow-y-auto py-8">
           {navItems.map((item, index) => (
             <div
@@ -171,7 +186,7 @@ export default function Header() {
                   <button
                     onClick={() => toggleSub(item.label)}
                     className={`w-full flex items-center justify-center gap-2 py-5 text-sm font-semibold tracking-widest transition-colors border-b border-white/10 ${
-                      item.active
+                      isActive(item.href)
                         ? "text-amber-400"
                         : "text-white/80 hover:text-white"
                     }`}
@@ -209,7 +224,7 @@ export default function Header() {
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
                   className={`block text-center py-5 text-sm font-semibold tracking-widest border-b border-white/10 transition-colors ${
-                    item.active
+                    isActive(item.href)
                       ? "text-amber-400"
                       : "text-white/80 hover:text-white"
                   }`}

@@ -35,27 +35,13 @@ export default function ConsultationForm() {
   return (
     <div className="min-h-screen bg-white flex items-center justify-center p-6">
       <div className="w-full max-w-[460px] bg-white shadow-xl overflow-hidden">
-        {/* Header */}
-        <div
-          className="px-10 py-8 flex items-center justify-center"
-          style={{
-            background: "linear-gradient(135deg, #1a3a6b 0%, #0d2247 100%)",
-          }}
-        >
-          <h2
-            className="text-xl md:text-2xl tracking-[0.25em] uppercase text-center"
-            style={{
-              fontFamily: "Georgia, 'Times New Roman', serif",
-              color: "#c9a84c",
-            }}
-          >
+        <div className="px-10 py-8 flex items-center justify-center bg-gradient-to-r from-[#0175CD] to-[#00133A]">
+          <h2 className="text-xl md:text-3xl tracking-[0.1em] font-semibold uppercase text-center font-crimson text-[#FFD152]">
             Đăng Ký Tư Vấn
           </h2>
         </div>
 
-        {/* Form body */}
         <div className="px-10 py-8 space-y-7">
-          {/* Full name */}
           <div className="flex items-center gap-3 border-b border-gray-300 pb-2">
             <User size={15} className="text-gray-400 shrink-0" />
             <input
@@ -67,7 +53,6 @@ export default function ConsultationForm() {
             />
           </div>
 
-          {/* Email */}
           <div className="flex items-center gap-3 border-b border-gray-300 pb-2">
             <Mail size={15} className="text-gray-400 shrink-0" />
             <input
@@ -80,7 +65,6 @@ export default function ConsultationForm() {
             />
           </div>
 
-          {/* Phone */}
           <div className="flex items-center gap-3 border-b border-gray-300 pb-2">
             <Phone size={15} className="text-gray-400 shrink-0" />
             <input
@@ -93,7 +77,6 @@ export default function ConsultationForm() {
             />
           </div>
 
-          {/* Project dropdown */}
           <div className="relative border-b border-gray-300 pb-2">
             <div
               className="flex items-center gap-3 cursor-pointer"
@@ -142,15 +125,10 @@ export default function ConsultationForm() {
             />
           </div>
 
-          {/* Submit */}
           <div className="flex justify-center pt-2">
             <button
               onClick={handleSubmit}
-              className="px-16 py-3 text-sm tracking-[0.25em] uppercase font-medium text-white transition-opacity duration-300 hover:opacity-90"
-              style={{
-                background: "linear-gradient(135deg, #1a3a6b 0%, #0d2247 100%)",
-                fontFamily: "Georgia, 'Times New Roman', serif",
-              }}
+              className="px-12 py-3 text-[24px] rounded uppercase font-medium font-crimson  bg-gradient-to-r from-[#0175CD] to-[#00133A] text-[#FFD152] transition-opacity duration-300 hover:opacity-90 cursor-pointer"
             >
               Gửi
             </button>

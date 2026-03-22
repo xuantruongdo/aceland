@@ -36,10 +36,7 @@ const projects = [
 export default function CommercialProjects() {
   return (
     <div className="w-full bg-[#3a3a3a] py-16 px-6 md:px-12 lg:px-20">
-      <h2
-        className="text-center text-white text-2xl md:text-3xl font-light tracking-[0.3em] mb-16 uppercase"
-        style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-      >
+      <h2 className="text-center text-white text-2xl md:text-3xl font-light tracking-[0.15em] font-crimson mb-16 uppercase">
         Các Dự Án Thương Mại
       </h2>
 
@@ -59,12 +56,7 @@ export default function CommercialProjects() {
             </div>
 
             <div className="flex flex-col items-center text-center mt-6 space-y-3 px-2">
-              <h3
-                className="text-white text-lg font-normal"
-                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-              >
-                {project.name}
-              </h3>
+              <h3 className="text-white text-[18px] font-montserrat">{project.name}</h3>
 
               <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
                 {project.description}
@@ -73,9 +65,9 @@ export default function CommercialProjects() {
               <Link
                 href={project.href}
                 className="
-                  mt-2 px-8 py-2
+                  mt-2 px-4 p-2
                   border border-white text-white
-                  text-xs tracking-[0.2em] uppercase
+                  text-xs uppercase rounded font-semibold
                   transition-all duration-300
                   hover:bg-white hover:text-[#3a3a3a]
                   hover:shadow-lg

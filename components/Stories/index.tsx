@@ -44,7 +44,7 @@ export default function Stories() {
           />
         </div>
 
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-center tracking-[0.1em] text-white uppercase">
+        <h2 className="text-3xl md:text-[30px] font-light text-center tracking-[0.1em] font-crimson text-white uppercase">
           CÂU CHUYỆN
         </h2>
 
