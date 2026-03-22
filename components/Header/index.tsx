@@ -130,7 +130,6 @@ export default function Header() {
                     </Link>
                   )}
 
-                  {/* Desktop Dropdown Menu */}
                   {item.dropdown && (
                     <div
                       onMouseEnter={() => setOpenDesktopSub(item.label)}

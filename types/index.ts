@@ -13,15 +13,36 @@ export enum Area {
   OVER_100 = ">100",
 }
 
+export interface LocationDetail {
+  address: string;
+  description: string;
+  coordinates?: {
+    lat: number;
+    lng: number;
+  };
+}
+
+export interface ProjectInfoContent {
+  image: string;
+  content: string[];
+}
+
 export interface Project {
   id: number;
+  slug: string;
   name: string;
-  location: string;
   province: string;
   ward: string;
   area: Area;
   status: Status;
   image: string;
+  info: string[];
+  location: ProjectInfoContent;
+  potential: ProjectInfoContent;
+  livingSpace: ProjectInfoContent;
+  salesPolicy: ProjectInfoContent;
+  images: string[];
+  contact: string;
 }
 
 export interface AccordionItem {

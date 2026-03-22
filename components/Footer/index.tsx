@@ -85,7 +85,7 @@ export default function Footer() {
 
           <div>
             <Link
-              href="/lien-he"
+              href="/contact-us"
               className="inline-flex items-center gap-2 border border-white text-white text-xs tracking-[0.15em] uppercase px-5 py-2 hover:bg-white hover:text-[#1a1a1a] transition-colors duration-300"
             >
               Liên Hệ Tư Vấn

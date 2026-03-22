@@ -3,6 +3,7 @@
 import { AccordionItem } from "@/types";
 import { useState } from "react";
 import Accordion from "../ui/AccordionItem";
+
 const FAQS: AccordionItem[] = [
   {
     id: 1,
@@ -189,7 +190,7 @@ export default function SocialHousingFAQ() {
   };
 
   return (
-    <section className="w-full bg-white py-12">
+    <div className="w-full bg-white py-12">
       {FAQS.map((faq) => (
         <Accordion
           key={faq.id}
@@ -198,6 +199,6 @@ export default function SocialHousingFAQ() {
           onToggle={() => toggle(faq.id)}
         />
       ))}
-    </section>
+    </div>
   );
 }

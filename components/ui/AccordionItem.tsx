@@ -8,9 +8,15 @@ interface AccordionProps {
   item: AccordionItem;
   isOpen: boolean;
   onToggle: () => void;
+  contentClass?: string;
 }
 
-const Accordion = ({ item, isOpen, onToggle }: AccordionProps) => {
+const Accordion = ({
+  item,
+  isOpen,
+  onToggle,
+  contentClass,
+}: AccordionProps) => {
   const isMobile = useIsMobile();
 
   return (
@@ -51,13 +57,11 @@ const Accordion = ({ item, isOpen, onToggle }: AccordionProps) => {
       <div
         className={`
             overflow-hidden transition-all duration-300 ease-in-out
-            ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}
+            ${isOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}
         `}
-            >
-                <div
-                className={`
-            py-6 bg-white border-b border-gray-100 flex justify-center
-            transition-all duration-300
+      >
+        <div
+          className={`${contentClass} py-6 text-white flex justify-center transition-all duration-300
             ${isOpen ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"}
             `}
         >

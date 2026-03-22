@@ -13,6 +13,7 @@ import {
 } from "@/constants";
 import Dropdown from "../ui/Dropdown";
 import Pagination from "../ui/Pagination";
+import Link from "next/link";
 
 interface ProjectListingProps {
   filterByStatus?: boolean;
@@ -145,7 +146,7 @@ export default function ProjectListing({
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-5xl mx-auto">
             {paginated.map((project) => (
-              <div
+              <Link href={`/projects/${project.slug}`}
                 key={project.id}
                 className="relative group overflow-hidden cursor-pointer aspect-[4/3]"
               >
@@ -161,10 +162,10 @@ export default function ProjectListing({
                     {project.name}
                   </h3>
                   <p className="text-gray-300 text-xs mt-1">
-                    {project.location}
+                    {project.province}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}

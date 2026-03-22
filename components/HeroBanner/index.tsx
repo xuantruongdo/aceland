@@ -8,33 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import Link from "next/link";
-
-const slides = [
-  {
-    image: "/images/banner-1.jpg",
-    title: "DỰ ÁN NHÀ Ở XÃ HỘI SUN VALLEY",
-    subtitle:
-      "Nơi an cư lý tưởng với hệ sinh thái tiện ích hiện đại và không gian sống xanh chuẩn mực",
-    buttonText: "CHI TIẾT",
-    href: "/du-an/sun-valley",
-  },
-  {
-    image: "/images/banner-2.jpg",
-    title: "DỰ ÁN NHÀ Ở XÃ HỘI",
-    subtitle:
-      "Giải pháp nhà ở bền vững, đáp ứng đầy đủ nhu cầu sinh sống và đầu tư lâu dài",
-    buttonText: "CHI TIẾT",
-    href: "/du-an/sun-valley-2",
-  },
-  {
-    image: "/images/banner-3.jpg",
-    title: "DỰ ÁN NHÀ Ở XÃ HỘI",
-    subtitle:
-      "Giải pháp nhà ở bền vững, đáp ứng đầy đủ nhu cầu sinh sống và đầu tư lâu dài",
-    buttonText: "KHÁM PHÁ",
-    href: "/du-an/sun-valley-2",
-  },
-];
+import { PROJECTS } from "@/constants";
 
 export default function HeroBanner() {
   return (
@@ -50,37 +24,41 @@ export default function HeroBanner() {
         pagination={{ clickable: true }}
         className="h-full"
       >
-        {slides.map((slide, index) => (
+        {PROJECTS.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="relative w-full h-screen">
               <Image
                 src={slide.image}
-                alt={slide.title}
+                alt={slide.name}
                 fill
                 className="object-cover"
                 priority={index === 0}
               />
+
               <div className="absolute inset-0 bg-black/40" />
-              <div className="absolute inset-0 flex items-end pb-24">
-                <div className="w-full bg-black/5 backdrop-blur-xs px-8 py-10 shadow-2xl flex justify-center animate-fadeInUp">
-                  <div className="md:max-w-[70%]">
-                    <h1 className="text-2xl sm:text-3xl lg:text-6xl tracking-[0.15em] font-medium text-white mb-4 leading-snug">
-                      {slide.title}
+
+              <div className="absolute inset-0 flex items-end pb-16 md:pb-24">
+                <div className="w-full bg-black/10 backdrop-blur-sm px-5 sm:px-8 py-6 sm:py-10 shadow-2xl flex justify-center animate-fadeInUp">
+                  <div className="w-full md:max-w-[70%]">
+                    <h1 className="text-xl sm:text-3xl lg:text-6xl tracking-[0.12em] font-medium text-white mb-3 sm:mb-4 leading-snug">
+                      {slide.name}
                     </h1>
 
-                    <div className="md:flex items-center gap-4 md:gap-20">
-                      <p className="text-sm sm:text-base text-gray-200 mb-6">
-                        {slide.subtitle}
+                    <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
+                      <p className="flex-1 min-w-0 text-sm sm:text-base text-gray-200 line-clamp-2 md:line-clamp-1">
+                        {slide.info}
                       </p>
 
                       <Link
-                        href={slide.href}
-                        className="group relative inline-flex items-center gap-2 px-12 py-3 text-sm font-semibold tracking-wide text-white border border-cyan-400 overflow-hidden transition-all duration-300"
+                        href={`/projects/${slide.slug}`}
+                        className="shrink-0 w-fit group relative inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white border border-cyan-400 whitespace-nowrap overflow-hidden transition-all duration-300 hover:scale-[1.03]"
                       >
-                        <span className="absolute inset-0 bg-black/90 opacity-80 group-hover:opacity-100 transition" />
-                        <span className="absolute inset-0 rounded-md border border-cyan-400 blur-sm opacity-70 group-hover:opacity-100 group-hover:blur-md transition-all duration-300" />
+                        <span className="absolute inset-0 bg-black/80 opacity-70 group-hover:opacity-100 transition duration-300" />
+
+                        <span className="absolute inset-0 border border-cyan-400 blur-sm opacity-60 group-hover:opacity-100 group-hover:blur-md transition-all duration-300" />
+
                         <span className="relative z-10 flex items-center gap-2">
-                          {slide.buttonText}
+                          Chi tiết
                           <span className="transition-transform duration-300 group-hover:translate-x-1">
                             →
                           </span>
