@@ -5,28 +5,35 @@ import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { NavItem, SubNavItem } from "@/types";
 
-const navItems = [
-  { label: "TRANG CHỦ", href: "/", active: true },
+export const navItems: NavItem[] = [
+  { label: "TRANG CHỦ", href: "/" },
   { label: "GIỚI THIỆU", href: "/about-us" },
+
   {
     label: "NHÀ Ở XÃ HỘI",
     href: "#",
+    match: "/social-house",
     dropdown: [
       { label: "Dự án", href: "/social-house/projects" },
       { label: "Đối tượng", href: "/social-house/audience" },
       { label: "Tư vấn hồ sơ", href: "/social-house/consultancy" },
     ],
   },
+
   { label: "DỰ ÁN", href: "/projects" },
+
   {
     label: "CHUYỂN NHƯỢNG",
-    href: "/#",
+    href: "#",
+    match: "/transfer",
     dropdown: [
       { label: "Căn hộ chuyển nhượng", href: "/transfer" },
       { label: "Đăng bán căn hộ", href: "/transfer/form" },
     ],
   },
+
   { label: "LIÊN HỆ", href: "/contact-us" },
   { label: "TUYỂN DỤNG", href: "/careers" },
 ];
@@ -37,9 +44,20 @@ export default function Header() {
   const [openDesktopSub, setOpenDesktopSub] = useState<string | null>(null);
   const pathname = usePathname();
 
-  const isActive = (href: string) => {
-    if (href === "/") return pathname === "/";
-    return pathname.startsWith(href);
+  const isActive = (item: NavItem) => {
+    if (item.href === "/") return pathname === "/";
+
+    if (item.match) {
+      return pathname.startsWith(item.match);
+    }
+
+    if (item.dropdown) {
+      return item.dropdown.some((sub: SubNavItem) =>
+        pathname.startsWith(sub.href),
+      );
+    }
+
+    return pathname.startsWith(item.href);
   };
 
   const toggleSub = (label: string) => {
@@ -68,7 +86,7 @@ export default function Header() {
     <>
       <header className="absolute top-0 left-0 right-0 z-50 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between md:justify-center gap-8 h-16">
             <Link href={"/"} className="flex items-center gap-2 z-[60]">
               <Image
                 src="/images/logo.png"
@@ -86,7 +104,7 @@ export default function Header() {
                       onMouseEnter={() => setOpenDesktopSub(item.label)}
                       onMouseLeave={() => setOpenDesktopSub(null)}
                       className={`flex items-center gap-1.5 transition text-sm font-medium ${
-                        isActive(item.href)
+                        isActive(item)
                           ? "text-amber-400"
                           : "text-white hover:text-amber-400"
                       }`}
@@ -103,7 +121,7 @@ export default function Header() {
                     <Link
                       href={item.href}
                       className={`transition text-sm font-medium ${
-                        isActive(item.href)
+                        isActive(item)
                           ? "text-amber-400"
                           : "text-white hover:text-amber-400"
                       }`}
@@ -184,7 +202,7 @@ export default function Header() {
                   <button
                     onClick={() => toggleSub(item.label)}
                     className={`w-full flex items-center justify-center gap-2 py-5 text-sm font-semibold tracking-widest transition-colors border-b border-white/10 ${
-                      isActive(item.href)
+                      isActive(item)
                         ? "text-amber-400"
                         : "text-white/80 hover:text-white"
                     }`}
@@ -222,7 +240,7 @@ export default function Header() {
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
                   className={`block text-center py-5 text-sm font-semibold tracking-widest border-b border-white/10 transition-colors ${
-                    isActive(item.href)
+                    isActive(item)
                       ? "text-amber-400"
                       : "text-white/80 hover:text-white"
                   }`}

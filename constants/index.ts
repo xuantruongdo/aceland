@@ -1,4 +1,4 @@
-import { Area, Project, Status } from "@/types";
+import { Area, JobPosition, Project, Status } from "@/types";
 
 export const PROJECTS: Project[] = [
   {
@@ -213,3 +213,79 @@ export const APARTMENT_TYPE_OPTIONS: { value: ApartmentType; label: string }[] =
     { value: ApartmentType.Penthouse, label: "Penthouse" },
     { value: ApartmentType.Shophouse, label: "Shophouse" },
   ];
+
+export enum WorkType {
+  Internship = "Thực tập sinh",
+  FullTime = "Toàn thời gian",
+  PartTime = "Bán thời gian",
+  Contract = "Hợp đồng",
+}
+
+export const JOB_POSITIONS: JobPosition[] = [
+  {
+    id: 1,
+    title: "Thực tập sinh Kinh doanh",
+    workType: WorkType.Internship,
+    quantity: 3,
+    salary: "3 triệu - 5 triệu",
+    location: "Hà Nội",
+    deadline: "27/03/2026",
+    contact: "0123456789",
+    email: "hr@aceland.vn",
+  },
+  {
+    id: 2,
+    title: "Chuyên viên Kinh doanh Bất động sản",
+    workType: WorkType.FullTime,
+    quantity: 5,
+    salary: "15 triệu - 30 triệu",
+    location: "Hà Nội, TP.HCM",
+    deadline: "15/04/2026",
+    contact: "0123456789",
+    email: "hr@aceland.vn",
+  },
+  {
+    id: 3,
+    title: "Chuyên viên Marketing Digital",
+    workType: WorkType.FullTime,
+    quantity: 2,
+    salary: "12 triệu - 20 triệu",
+    location: "Hà Nội",
+    deadline: "10/04/2026",
+    contact: "0123456789",
+    email: "hr@aceland.vn",
+  },
+  {
+    id: 4,
+    title: "Thực tập sinh Marketing",
+    workType: WorkType.Internship,
+    quantity: 2,
+    salary: "3 triệu - 4 triệu",
+    location: "Hà Nội",
+    deadline: "20/04/2026",
+    contact: "0123456789",
+    email: "hr@aceland.vn",
+  },
+  {
+    id: 5,
+    title: "Chuyên viên Pháp lý",
+    workType: WorkType.FullTime,
+    quantity: 1,
+    salary: "18 triệu - 25 triệu",
+    location: "Hà Nội",
+    deadline: "30/04/2026",
+    contact: "0123456789",
+    email: "hr@aceland.vn",
+  },
+  {
+    id: 6,
+    title: "Trưởng phòng Kinh doanh",
+    workType: WorkType.FullTime,
+    quantity: 1,
+    salary: "Thỏa thuận",
+    location: "Hà Nội",
+    deadline: "05/05/2026",
+    contact: "0123456789",
+    email: "hr@aceland.vn",
+  },
+];

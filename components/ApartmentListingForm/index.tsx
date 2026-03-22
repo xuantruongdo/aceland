@@ -56,13 +56,13 @@ export default function ApartmentListingForm() {
   return (
     <div className="min-h-screen bg-white flex items-center justify-center py-10 md:py-20">
       <div className="w-full max-w-[700px] bg-white">
-        <div className="px-10 py-5 rounded flex items-center justify-center bg-gradient-to-r from-[#0175CD] to-[#00133A] mb-6">
+        <div className="px-10 py-5 md:rounded flex items-center justify-center bg-gradient-to-r from-[#0175CD] to-[#00133A] mb-6">
           <h2 className="font-crimson text-xl md:text-2xl tracking-[0.15em] uppercase text-center text-[#FFD152]">
             Biểu Mẫu Đăng Bán Căn Hộ
           </h2>
         </div>
 
-        <div className="px-2 pb-10">
+        <div className="px-8 md:px-2 pb-10">
           <label className={LABEL_CLASS}>
             Tên căn hộ<span className="text-red-500 ml-0.5">*</span>
           </label>

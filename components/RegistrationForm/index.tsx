@@ -62,13 +62,13 @@ export default function RegistrationForm() {
   return (
     <div className="min-h-screen bg-white flex items-center justify-center py-10 md:py-20">
       <div className="w-full max-w-[700px] bg-white">
-        <div className="px-10 py-5 rounded flex items-center justify-center bg-gradient-to-r from-[#0175CD] to-[#00133A] mb-6">
+        <div className="px-10 py-5 md:rounded flex items-center justify-center bg-gradient-to-r from-[#0175CD] to-[#00133A] mb-6">
           <h2 className="font-crimson text-xl md:text-2xl tracking-[0.15em] uppercase text-center text-[#FFD152]">
             Đăng Ký Thông Tin
           </h2>
         </div>
 
-        <div className="px-6 pb-10">
+        <div className="px-8 md:px-2 pb-10">
           <label className={LABEL_CLASS}>
             Họ và tên <span className="text-red-500">*</span>
           </label>

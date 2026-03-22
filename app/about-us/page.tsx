@@ -1,31 +1,34 @@
 import AboutUs from "@/components/AboutUs";
 import Banner from "@/components/Banner";
 import ConsultationForm from "@/components/ConsultationForm";
-import VisionMission from "@/components/VisionMission";
+import InfoOverlay, {
+  BlockType,
+  OverlayPosition,
+} from "@/components/InfoOverlay";
 
 export default function About() {
   return (
     <>
       <Banner image="/images/banner-2.jpg" title="GIỚI THIỆU CÔNG TY" />
       <AboutUs />
-      <VisionMission
+      <InfoOverlay
         title="Tầm Nhìn"
         image="/images/vision.png"
-        overlayPosition="top-left"
+        overlayPosition={OverlayPosition.TopLeft}
         content={[
           {
-            type: "paragraph",
+            type: BlockType.Paragraph,
             text: "Trở thành tập đoàn phát triển bất động sản cao cấp hàng đầu Việt Nam, kiến tạo những không gian sống tinh hoa, mang tầm vóc quốc tế và giá trị vượt thời gian.",
           },
         ]}
       />
-      <VisionMission
+      <InfoOverlay
         title="Sứ Mệnh"
         image="/images/mission.png"
-        overlayPosition="top-right"
+        overlayPosition={OverlayPosition.TopRight}
         content={[
           {
-            type: "list",
+            type: BlockType.List,
             items: [
               "Mang đến chuẩn mực sống đẳng cấp qua những dự án khác biệt về thiết kế, chất lượng và tiện ích.",
               "Tạo dựng cộng đồng tinh hoa với môi trường sống văn minh, an toàn và giàu bản sắc.",

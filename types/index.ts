@@ -1,3 +1,5 @@
+import { WorkType } from "@/constants";
+
 export enum Status {
   ON_SALE = "on-sale",
   COMING_SOON = "coming-soon",
@@ -26,4 +28,28 @@ export interface AccordionItem {
   id: number;
   title: string;
   content: React.ReactNode;
+}
+
+export type SubNavItem = {
+  label: string;
+  href: string;
+};
+
+export type NavItem = {
+  label: string;
+  href: string;
+  match?: string;
+  dropdown?: SubNavItem[];
+};
+
+export interface JobPosition {
+  id: number;
+  title: string;
+  workType: WorkType;
+  quantity: number;
+  salary: string;
+  location: string;
+  deadline: string;
+  contact: string;
+  email: string;
 }
