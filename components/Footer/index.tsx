@@ -5,12 +5,11 @@ import { Mail, Facebook, Phone, MapPin, Hash } from "lucide-react";
 const navLinks = [
   { label: "Trang Chủ", href: "/" },
   { label: "Giới Thiệu", href: "/about-us" },
-  { label: "Dự Án", href: "/social-house/projects" },
-  { label: "Nhà Ở Xã Hội", href: "/nha-o-xa-hoi" },
-  { label: "Chuyển Nhượng", href: "/chuyen-nhuong" },
-  { label: "Tin Tức", href: "/tin-tuc" },
-  { label: "Liên Hệ", href: "/lien-he" },
-  { label: "Tuyển Dụng", href: "/tuyen-dung" },
+  { label: "Dự Án", href: "/projects" },
+  { label: "Nhà Ở Xã Hội", href: "/social-house/projects" },
+  { label: "Chuyển Nhượng", href: "/transfer" },
+  { label: "Liên Hệ", href: "/contact-us" },
+  { label: "Tuyển Dụng", href: "/careers" },
 ];
 
 export default function Footer() {

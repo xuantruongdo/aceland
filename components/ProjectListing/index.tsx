@@ -8,13 +8,25 @@ import {
   PAGE_SIZE,
   PROJECTS,
   PROVINCES,
-  TABS,
+  PROJECT_TABS,
   WARDS,
 } from "@/constants";
 import Dropdown from "../ui/Dropdown";
 import Pagination from "../ui/Pagination";
 
-export default function ProjectListing() {
+interface ProjectListingProps {
+  filterByStatus?: boolean;
+  filter?: boolean;
+  title?: string;
+  backgroundClass?: string;
+}
+
+export default function ProjectListing({
+  filterByStatus = true,
+  filter = true,
+  title,
+  backgroundClass,
+}: ProjectListingProps) {
   const [activeTab, setActiveTab] = useState<Status>(Status.ON_SALE);
   const [province, setProvince] = useState("");
   const [ward, setWard] = useState("");
@@ -41,85 +53,91 @@ export default function ProjectListing() {
 
   const handlePage = (p: number) => {
     setPage(p);
-    document
-      .getElementById("project-grid")
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
     <div className="w-full bg-white">
-      <div className="flex justify-center gap-4 py-8 px-4">
-        {TABS.map((tab) => {
-          const isActive = activeTab === tab.key;
-          return (
-            <button
-              key={tab.key}
-              onClick={() => {
-                setActiveTab(tab.key);
-                resetFilters();
-              }}
-              className={`relative w-[200px] h-[100px] overflow-hidden cursor-pointer transition-all duration-300
+      {filterByStatus && (
+        <div className="flex justify-center gap-4 py-8 px-4">
+          {PROJECT_TABS.map((tab) => {
+            const isActive = activeTab === tab.key;
+            return (
+              <button
+                key={tab.key}
+                onClick={() => {
+                  setActiveTab(tab.key);
+                  resetFilters();
+                }}
+                className={`relative w-[200px] h-[100px] overflow-hidden cursor-pointer transition-all duration-300
                 ${isActive ? "ring-2 ring-[#c9a84c]" : "opacity-70 hover:opacity-90"}`}
-            >
-              <Image
-                src={tab.image}
-                alt={tab.label}
-                fill
-                className="object-cover"
-              />
-              <div
-                className={`absolute inset-0 ${isActive ? "bg-black/40" : "bg-black/55"}`}
-              />
-              <span className="absolute inset-0 flex items-center justify-center text-white text-xs tracking-[0.18em] font-medium uppercase">
-                {tab.label}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-
-      <div className="bg-[#3a3a3a] px-8 md:px-16 py-4">
-        <div className="flex flex-col sm:flex-row gap-3 max-w-3xl mx-auto">
-          <Dropdown
-            placeholder="Tỉnh/Thành phố"
-            options={PROVINCES.map((p) => ({ value: p, label: p }))}
-            value={province}
-            onChange={(v) => {
-              setProvince(v);
-              setWard("");
-              setPage(1);
-            }}
-          />
-          <Dropdown
-            placeholder="Xã/Phường"
-            options={
-              province
-                ? (WARDS[province] || []).map((w) => ({ value: w, label: w }))
-                : []
-            }
-            value={ward}
-            onChange={(v) => {
-              setWard(v);
-              setPage(1);
-            }}
-            disabled={!province}
-          />
-          <Dropdown
-            placeholder="Diện tích"
-            options={AREA_OPTIONS}
-            value={area}
-            onChange={(v) => {
-              setArea(v);
-              setPage(1);
-            }}
-          />
+              >
+                <Image
+                  src={tab.image}
+                  alt={tab.label}
+                  fill
+                  className="object-cover"
+                />
+                <div
+                  className={`absolute inset-0 ${isActive ? "bg-black/40" : "bg-black/55"}`}
+                />
+                <span className="absolute inset-0 flex items-center justify-center text-white text-xs tracking-[0.18em] font-medium uppercase">
+                  {tab.label}
+                </span>
+              </button>
+            );
+          })}
         </div>
-      </div>
+      )}
+
+      {filter && (
+        <div className="bg-[#333333] px-8 md:px-16 py-8">
+          <div className="flex flex-col sm:flex-row gap-3 max-w-3xl mx-auto">
+            <Dropdown
+              placeholder="Tỉnh/Thành phố"
+              options={PROVINCES.map((p) => ({ value: p, label: p }))}
+              value={province}
+              onChange={(v) => {
+                setProvince(v);
+                setWard("");
+                setPage(1);
+              }}
+            />
+            <Dropdown
+              placeholder="Xã/Phường"
+              options={
+                province
+                  ? (WARDS[province] || []).map((w) => ({ value: w, label: w }))
+                  : []
+              }
+              value={ward}
+              onChange={(v) => {
+                setWard(v);
+                setPage(1);
+              }}
+              disabled={!province}
+            />
+            <Dropdown
+              placeholder="Diện tích"
+              options={AREA_OPTIONS}
+              value={area}
+              onChange={(v) => {
+                setArea(v);
+                setPage(1);
+              }}
+            />
+          </div>
+        </div>
+      )}
 
       <div
-        id="project-grid"
-        className="px-8 md:px-16 pt-10 bg-[#f0f0f0] min-h-[400px]"
+        className={`px-8 md:px-16 pt-10 min-h-[400px] ${backgroundClass ? backgroundClass : "bg-gray-50"}`}
       >
+        {title && (
+          <h2 className="text-2xl md:text-3xl pb-8 font-crimson font-light text-center text-gray-900 tracking-wide">
+            {title}
+          </h2>
+        )}
+
         {paginated.length === 0 ? (
           <div className="flex items-center justify-center py-24 text-gray-400 text-sm tracking-widest uppercase">
             Không tìm thấy dự án phù hợp

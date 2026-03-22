@@ -18,17 +18,17 @@ const navItems = [
       { label: "Tư vấn hồ sơ", href: "/social-house/consultancy" },
     ],
   },
-  { label: "DỰ ÁN", href: "/du-an" },
+  { label: "DỰ ÁN", href: "/projects" },
   {
     label: "CHUYỂN NHƯỢNG",
-    href: "/chuyen-nhuong",
+    href: "/#",
     dropdown: [
-      { label: "Căn hộ chuyển nhượng", href: "/chuyen-nhuong/can-ho" },
-      { label: "Đăng bán căn hộ", href: "/chuyen-nhuong/dang-ban" },
+      { label: "Căn hộ chuyển nhượng", href: "/transfer" },
+      { label: "Đăng bán căn hộ", href: "/transfer/form" },
     ],
   },
-  { label: "LIÊN HỆ", href: "/lien-he" },
-  { label: "TUYỂN DỤNG", href: "/tuyen-dung" },
+  { label: "LIÊN HỆ", href: "/contact-us" },
+  { label: "TUYỂN DỤNG", href: "/careers" },
 ];
 
 export default function Header() {

@@ -123,7 +123,7 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-export const TABS: { key: Status; label: string; image: string }[] = [
+export const PROJECT_TABS: { key: Status; label: string; image: string }[] = [
   {
     key: Status.ON_SALE,
     label: "ĐANG MỞ BÁN",
@@ -193,3 +193,23 @@ export const TARGET_GROUP_OPTIONS = [
   "Học sinh, sinh viên",
   "Hộ gia đình bị thu hồi đất",
 ];
+
+export enum ApartmentType {
+  Empty = "",
+  Studio = "studio",
+  OneBedroom = "1-bedroom",
+  TwoBedroom = "2-bedroom",
+  ThreeBedroom = "3-bedroom",
+  Penthouse = "penthouse",
+  Shophouse = "shophouse",
+}
+
+export const APARTMENT_TYPE_OPTIONS: { value: ApartmentType; label: string }[] =
+  [
+    { value: ApartmentType.Studio, label: "Studio" },
+    { value: ApartmentType.OneBedroom, label: "1 Phòng ngủ" },
+    { value: ApartmentType.TwoBedroom, label: "2 Phòng ngủ" },
+    { value: ApartmentType.ThreeBedroom, label: "3 Phòng ngủ" },
+    { value: ApartmentType.Penthouse, label: "Penthouse" },
+    { value: ApartmentType.Shophouse, label: "Shophouse" },
+  ];

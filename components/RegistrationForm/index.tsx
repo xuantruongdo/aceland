@@ -62,8 +62,8 @@ export default function RegistrationForm() {
   return (
     <div className="min-h-screen bg-white flex items-center justify-center py-10 md:py-20">
       <div className="w-full max-w-[700px] bg-white">
-        <div className="px-10 py-5 flex items-center justify-center bg-gradient-to-r from-[#0175CD] to-[#00133A] mb-6">
-          <h2 className="text-xl md:text-2xl tracking-[0.15em] font-semibold uppercase text-center text-[#FFD152]">
+        <div className="px-10 py-5 rounded flex items-center justify-center bg-gradient-to-r from-[#0175CD] to-[#00133A] mb-6">
+          <h2 className="font-crimson text-xl md:text-2xl tracking-[0.15em] uppercase text-center text-[#FFD152]">
             Đăng Ký Thông Tin
           </h2>
         </div>
@@ -279,7 +279,7 @@ export default function RegistrationForm() {
           <div className="flex justify-center pt-8">
             <button
               onClick={handleSubmit}
-              className="px-12 py-2.5 text-sm tracking-[0.2em] uppercase font-semibold bg-gradient-to-r from-[#0175CD] to-[#00133A] text-[#FFD152] hover:opacity-90 transition-opacity cursor-pointer"
+              className="px-12 py-4 text-sm rounded tracking-[0.2em] uppercase font-semibold bg-gradient-to-r from-[#0175CD] to-[#00133A] text-[#FFD152] hover:opacity-90 transition-opacity cursor-pointer"
             >
               Nộp Hồ Sơ
             </button>
